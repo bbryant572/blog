@@ -1,0 +1,40 @@
+body {
+    background-image: url("https://thumbs.dreamstime.com/z/seamless-pattern-watercolor-navy-blue-anchor-white-background-hand-drawn-nautical-marine-template-sea-theme-design-194313775.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img-home {
+    width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-body {
+    background-color: aquamarine;
+}
+
+.card-text {
+    color: darkgreen;
+}
+
+h1 {
+    color: red;
+    text-align: center;
+}
+
+.profile-pic {
+    width: 20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    color: palegreen;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 28px;
+}
+
