@@ -1,1 +1,1 @@
-https://dashboard.heroku.com/apps/powerful-sands-74797
+https://git.heroku.com/infinite-temple-70711.git
