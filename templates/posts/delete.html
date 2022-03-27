@@ -8,5 +8,6 @@
     <form method="POST">
         {% csrf_token %}
         <input type="submit" class="btn btn-danger" value="Confirm">
+        <input type="button" class="btn btn-primary">Back<a href="{% url 'posts_list' %}" >Back</a>
     </form>
 {% endblock content %}
