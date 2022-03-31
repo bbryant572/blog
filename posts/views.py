@@ -1,9 +1,6 @@
 from django.views.generic import ListView, DetailView
-from django.views.generic import (
-    CreateView,
-    UpdateView,
-    DeleteView
-)
+from django.views.generic import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from .models import Post
 
@@ -18,19 +15,27 @@ class PostDetailView(DetailView):
     model = Post
 
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     template_name = "posts/new.html"
     model = Post
-    fields = ['title', 'author', 'text']
+    fields = ['title', 'theme', 'author', 'text']
 
 
-class PostUpdateView(UpdateView):
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = "posts/edit.html"
     model = Post
-    fields = ['title', 'text']
+    fields = ['title', 'theme', 'text']
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
 
 
-class PostDeleteView(DeleteView):
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     template_name = "posts/delete.html"
     model = Post
     success_url = reverse_lazy('posts_list')
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user

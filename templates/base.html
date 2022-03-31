@@ -24,7 +24,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'about' %}">About</a>
-              </li
+              </li>
               {% if user.is_authenticated %}
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'post_new' %}">Create Post</a>
@@ -32,13 +32,16 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'password_change' user.id %}">Password Reset</a>
+              </li>
               {% else %}
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">Log In</a>
-              </li
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
-              </li
+              </li>
               {% endif %}
             </ul>
           </div>
